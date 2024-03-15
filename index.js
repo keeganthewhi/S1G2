@@ -310,38 +310,58 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(x) {
+
+
+function sesliHarfSayaci(cumle) {
 let sesliHarfler= 'aeıioöuü'
 let count=0
+let yenicumle = cumle.split("")
 
-    for (let i = 0; i < x.length; i++) {
-         if (sesliHarfler.indexOf(x[i]) !== -1){
+    for (let i = 0; i < yenicumle.length; i++) {
+         if (sesliHarfler.indexOf(yenicumle[i]) !== -1){
          count++;
     }
     
     }
     console.log(`${count} tane sesli harf var`) 
+}
     
-    let buyukHarf = 0
 
-    let kucukHarf = 0
-for (let i = 0; i < x.length; i++) {
-  if ((x[i]) == (x[i].toUpperCase())) {
-    buyukHarf += 1
-   }
-   if ((x[i] )== (x[i].toLowerCase())){
-    kucukHarf += 1
-   }
- 
+
+
+
+
+
+
+
+
+
+function buyukkucuk(cumle) {
+  let buyukHarf = 0;
+  let kucukHarf = 0;
+
   
-}
-  console.log(`${buyukHarf} tane buyuk harf var`)
-   console.log(`${kucukHarf} tane kucuk harf var  `)
-}
-    
-sesliHarfSayaci("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+  let yenicumle = cumle.split('').filter(char => /[a-zA-Z]/.test(char));
 
- 
+  for (let i = 0; i < yenicumle.length; i++) {
+    if (yenicumle[i] === yenicumle[i].toUpperCase()) {
+      buyukHarf++;
+    }
+    if (yenicumle[i] === yenicumle[i].toLowerCase()) {
+      kucukHarf++;
+    }
+  }
+
+  console.log(`${buyukHarf} tane buyuk harf var`);
+  console.log(`${kucukHarf} tane kucuk harf var`);
+}
+
+
+
+      
+  sesliHarfSayaci("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s , when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+  buyukkucuk("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+  
 
 
 
